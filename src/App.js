@@ -66,6 +66,7 @@ const App = () => {
         />
 
         <br />
+        <br />
         <textarea
           placeholder="enter your comments here"
           onChange={changeHandler}
