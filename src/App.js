@@ -21,15 +21,17 @@ const App = () => {
     email: "",
     comments: "",
     isVisible: true,
+    mode: "",
   });
 
   console.log(formData);
 
   function changeHandler(event) {
+    const { name, value, checked, type } = event.target;
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
-        [event.target.name]: event.target.value,
+        [name]: type === "checkbox" ? checked : value,
       };
     });
   }
@@ -66,7 +68,6 @@ const App = () => {
         />
 
         <br />
-        <br />
         <textarea
           placeholder="enter your comments here"
           onChange={changeHandler}
@@ -83,6 +84,28 @@ const App = () => {
           checked={formData.isVisible}
         />
         <label htmlFor="isVisible">Am I visible</label>
+
+        <br />
+
+        <input
+          type="radio"
+          onChange={changeHandler}
+          name="mode"
+          value="Online-mode"
+          id="Online-mode"
+          checked={formData.mode === "Online-mode"}
+        />
+        <label htmlFor="Online-mode">Online Mode</label>
+
+        <input
+          type="radio"
+          onChange={changeHandler}
+          name="mode"
+          value="Offline-mode"
+          id="Offline-mode"
+          checked={formData.mode === "Offline-mode"}
+        />
+        <label htmlFor="Offline-mode">Offline Mode</label>
       </form>
     </div>
   );
