@@ -96,7 +96,7 @@ const App = () => {
           checked={formData.mode === "Online-mode"}
         />
         <label htmlFor="Online-mode">Online Mode</label>
-
+        <br />
         <input
           type="radio"
           onChange={changeHandler}
